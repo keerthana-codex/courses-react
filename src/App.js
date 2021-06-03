@@ -1,103 +1,27 @@
 import React from 'react'
-import { Button, Container, Form, Grid, Header, Icon, Segment, Statistic } from 'semantic-ui-react';
+import { Container, Grid, Icon, Segment } from 'semantic-ui-react';
 import './App.css';
+import DisplayBalance from './Components/DisplayBalance';
+import DisplayBalances from './Components/DisplayBalances';
+import EntyLine from './Components/EntyLine';
+
+import MainHeader from './Components/MainHeader';
+import NewEntryForm from './Components/NewEntryForm';
 
 function App() {
   return (
     <>
    <Container>
-     <Header as='h1'>Budget</Header>
+    <MainHeader title="Budget" type="h1"/>
 
-     <Statistic size='small'>
-     <Statistic.Label>Your Balance:</Statistic.Label>
-     <Statistic.Value>2,550.53</Statistic.Value>
-     </Statistic>
+    <DisplayBalance title="Your Balance:" Value="2,550.53" size="small" />
+`   <DisplayBalances />
+    <MainHeader title="History" type="h3"/>
+     <EntyLine description="income" Value="$822.50" />
+     <EntyLine description="expense" Value="$822.50" isExpense/>
 
-     <Segment textAlign="center">
-       <Grid columns={2} divided>
-         <Grid.Row>
-           <Grid.Column>
-             <Statistic size="tiny" color="green">
-               <Statistic.Label style={{ textAlign: 'left'}}>
-                 Incoming:
-               </Statistic.Label>
-               <Statistic.Value>1,045.50</Statistic.Value>
-             </Statistic>
-           </Grid.Column>
-           <Grid.Column>
-             <Statistic size="tiny" color="red">
-               <Statistic.Label style={{ textAlign: 'left'}}>
-                 Incoming:
-               </Statistic.Label>
-               <Statistic.Value>632.50</Statistic.Value>
-             </Statistic>
-           </Grid.Column>
-         </Grid.Row>
-       </Grid>
-     </Segment>
-
-     <Header as='h3'>History</Header>
-     <Segment color='red'>
-       <Grid columns={3} textAlign='right'>
-         <Grid.Row>
-           <Grid.Column width={10} textAlign='left'>Somathing</Grid.Column>
-           <Grid.Column width={3} textAlign='right'>$5000,00</Grid.Column>
-           <Grid.Column width={3}>
-             <Icon name='edit' bordered />
-             <Icon name='trash' bordered />
-           </Grid.Column>
-         </Grid.Row>
-       </Grid>
-     </Segment>
-     <Segment color='green'>
-       <Grid columns={3} textAlign='right'>
-         <Grid.Row>
-           <Grid.Column width={10} textAlign='left'>Somathing else</Grid.Column>
-           <Grid.Column width={3} textAlign='right'>$10,00</Grid.Column>
-           <Grid.Column width={3}>
-             <Icon name='edit' bordered />
-             <Icon name='trash' bordered />
-           </Grid.Column>
-         </Grid.Row>
-       </Grid>
-     </Segment>
-     <Segment color='red'>
-       <Grid columns={3} textAlign='right'>
-         <Grid.Row>
-           <Grid.Column width={10} textAlign='left'>Somathing</Grid.Column>
-           <Grid.Column width={3} textAlign='right'>$200,00</Grid.Column>
-           <Grid.Column width={3}>
-             <Icon name='edit' bordered />
-             <Icon name='trash' bordered />
-           </Grid.Column>
-         </Grid.Row>
-       </Grid>
-     </Segment>
-
-     <Header as='h3'>Add new transaction</Header>
-     <Form unstackable>
-       <Form.Group>
-         <Form.Input
-          icon='tags'
-          width={12}
-          label='Description'
-          placeholder='New shinny thing'
-        />
-        <Form.Input
-          width={4}
-          label='Value'
-          placeholder='100.00'
-          icon='dollar'
-          iconPosition='left'
-          />
-       </Form.Group>
-
-       <Button.Group style={{ marginTop : 20}}>
-         <Button>Cancel</Button>
-         <Button.Or />
-         <Button primary>ok</Button>
-       </Button.Group>
-     </Form>
+    <MainHeader title="Add new transaction" type="h3" />
+    <NewEntryForm />
    </Container>
    </>
   );
