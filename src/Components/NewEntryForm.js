@@ -2,18 +2,18 @@ import React from 'react'
 import { Form } from 'semantic-ui-react'
 import ButtonSaveOrCancel from './ButtonSaveOrCancel';
 import EntryForm from './EntryForm';
+import useEntryDetail from '../hooks/useEntryDetail';
 
-function NewEntryForm(
-    {
-        addEntry,
-        description,
-        setDescription,
-        value,
-        setValue,
-        isExpense,
-        setIsExpense
-        }
-        ){
+function NewEntryForm(){
+const {
+    description,
+    setDescription,
+    value,
+    setValue,
+    isExpense,
+    setIsExpense,
+    addEntry,
+} = useEntryDetail();
 
     return (
         <div>
